@@ -4,6 +4,14 @@ import androidx.annotation.DrawableRes
 
 sealed class Screen(val title: String, val route: String) {
 
+    sealed class BottomScreen(val bTitle: String, val bRoute: String, @DrawableRes val icon: Int
+    ):Screen(bTitle,bRoute){
+        object Home: BottomScreen("home","home",R.drawable.baseline_home_24)
+
+        object Library: BottomScreen("library","library",R.drawable.baseline_library_music_24)
+
+        object Browse: BottomScreen("browse","browse",R.drawable.baseline_apps_24)
+    }
     sealed class DrawerScreen(val dTitle: String, val dRoute: String, @DrawableRes val icon: Int)
         :Screen(dTitle,dRoute){
             object Account: DrawerScreen (
@@ -26,6 +34,13 @@ sealed class Screen(val title: String, val route: String) {
         }
 
 }
+
+val screenInBottom = listOf(
+    Screen.BottomScreen.Home,
+    Screen.BottomScreen.Library,
+    Screen.BottomScreen.Browse
+
+)
 
 val screenInDrawer = listOf(
     Screen.DrawerScreen.Account,

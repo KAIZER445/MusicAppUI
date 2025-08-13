@@ -180,7 +180,7 @@ fun Navigation(navController: NavController, viewModel: MainViewModel, pd: Paddi
             Browse()
         }
         composable(Screen.BottomScreen.Library.route){
-
+            Library()
         }
         composable(Screen.DrawerScreen.AddAccount.route){
 
